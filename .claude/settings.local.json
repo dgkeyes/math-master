@@ -9,7 +9,9 @@
       "Bash(herd list:*)",
       "Bash(herd links:*)",
       "Bash(herd paths:*)",
-      "Bash(herd parked:*)"
+      "Bash(herd parked:*)",
+      "Bash(herd link:*)",
+      "Bash(herd secure:*)"
     ]
   }
 }
