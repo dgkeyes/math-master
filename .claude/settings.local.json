@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(composer require:*)",
+      "Bash(curl:*)",
+      "Bash(php artisan view:clear:*)",
+      "Bash(php artisan cache:clear:*)",
+      "Bash(php artisan:*)",
+      "Bash(herd list:*)",
+      "Bash(herd links:*)",
+      "Bash(herd paths:*)",
+      "Bash(herd parked:*)"
+    ]
+  }
+}
