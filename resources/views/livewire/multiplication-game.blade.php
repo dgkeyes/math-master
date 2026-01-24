@@ -1,9 +1,14 @@
 <div
     x-data="{
         flashClass: '',
+        gameStarted: false,
         startTime: Date.now(),
         elapsedTime: 0,
         timerInterval: null,
+        startGame() {
+            this.gameStarted = true;
+            this.startTimer();
+        },
         startTimer() {
             this.startTime = Date.now();
             this.elapsedTime = 0;
@@ -54,8 +59,7 @@
             }
         }
     }"
-    x-init="startTimer()"
-    x-on:start-timer.window="startTimer()"
+    x-on:start-timer.window="if (gameStarted) startTimer()"
     x-on:correct-answer.window="showConfetti()"
     x-on:wrong-answer.window="showSad()"
     :class="flashClass"
@@ -68,8 +72,24 @@
     <!-- Confetti script -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
+    <!-- Start Screen -->
+    <div x-show="!gameStarted" class="text-center">
+        <div class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-8 sm:p-12 w-full max-w-lg">
+            <div class="text-6xl mb-6">✖️</div>
+            <h2 class="text-3xl font-bold text-zinc-800 dark:text-white mb-4">Math Master</h2>
+            <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-8">Multiplication Practice</p>
+            <button
+                x-on:click="startGame()"
+                type="button"
+                class="px-12 py-4 text-xl font-bold text-white bg-green-600 hover:bg-green-700 rounded-xl transition-colors"
+            >
+                Start!
+            </button>
+        </div>
+    </div>
+
     <!-- Score Display -->
-    <div class="mb-8 flex flex-wrap justify-center gap-4 text-center">
+    <div x-show="gameStarted" x-cloak class="mb-8 flex flex-wrap justify-center gap-4 text-center">
         <div class="bg-green-100 dark:bg-green-900/30 rounded-xl px-6 py-3">
             <div class="text-sm text-green-600 dark:text-green-400 font-medium">Score</div>
             <div class="text-3xl font-bold text-green-700 dark:text-green-300">{{ $score }}</div>
@@ -91,7 +111,7 @@
     </div>
 
     <!-- Main Game Card -->
-    <div class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-8 sm:p-12 w-full max-w-lg">
+    <div x-show="gameStarted" x-cloak class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-8 sm:p-12 w-full max-w-lg">
         @if(!$showResult)
             <!-- Timer Display -->
             <div class="text-center mb-4">
@@ -408,7 +428,7 @@
 
     <!-- Progress Info -->
     @if($totalAnswered > 0)
-        <div class="mt-8 text-center text-zinc-500 dark:text-zinc-400">
+        <div x-show="gameStarted" x-cloak class="mt-8 text-center text-zinc-500 dark:text-zinc-400">
             {{ $score }} / {{ $totalAnswered }} correct ({{ $totalAnswered > 0 ? round(($score / $totalAnswered) * 100) : 0 }}%)
         </div>
     @endif

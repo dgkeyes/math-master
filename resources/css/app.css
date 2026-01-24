@@ -12,6 +12,10 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+[x-cloak] {
+    display: none !important;
+}
+
 /* Game animations */
 @keyframes flash-green {
     0%, 100% { background-color: transparent; }
