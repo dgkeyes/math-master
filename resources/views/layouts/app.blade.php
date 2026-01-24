@@ -25,7 +25,8 @@
         <flux:spacer />
 
         <flux:navbar class="-mb-px max-lg:hidden">
-            <flux:navbar.item icon="play-circle" href="{{ route('game') }}">Play Game</flux:navbar.item>
+            <flux:navbar.item icon="bolt" href="{{ route('pop-quiz') }}">Pop Quiz</flux:navbar.item>
+            <flux:navbar.item icon="table-cells" href="{{ route('times-tables') }}">Times Tables</flux:navbar.item>
         </flux:navbar>
 
         <flux:spacer />

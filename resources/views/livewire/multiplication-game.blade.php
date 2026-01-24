@@ -76,8 +76,8 @@
     <div x-show="!gameStarted" class="text-center">
         <div class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-8 sm:p-12 w-full max-w-lg">
             <div class="text-6xl mb-6">✖️</div>
-            <h2 class="text-3xl font-bold text-zinc-800 dark:text-white mb-4">Math Master</h2>
-            <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-8">Multiplication Practice</p>
+            <h2 class="text-3xl font-bold text-zinc-800 dark:text-white mb-4">Pop Quiz</h2>
+            <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-8">Random Multiplication Problems</p>
             <button
                 x-on:click="startGame()"
                 type="button"

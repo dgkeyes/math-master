@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\MultiplicationGame;
+use App\Livewire\TimesTableGame;
 
 Route::get('/', function () {
-    return redirect()->route('game');
+    return redirect()->route('pop-quiz');
 });
 
-Route::get('/game', MultiplicationGame::class)->name('game');
+Route::get('/pop-quiz', MultiplicationGame::class)->name('pop-quiz');
+Route::get('/times-tables', TimesTableGame::class)->name('times-tables');
