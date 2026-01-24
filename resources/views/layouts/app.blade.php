@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Multiplication Game') }}</title>
+    <title>{{ config('app.name', 'Math Master') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,8 +19,10 @@
     <flux:header container class="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700">
         <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
-        <flux:brand href="/" name="Math Master" class="max-lg:hidden dark:hidden" />
-        <flux:brand href="/" name="Math Master" class="max-lg:!hidden hidden dark:flex" />
+        <a href="/" class="max-lg:hidden">
+            <img src="/images/logo.svg" alt="Math Master" class="h-8 dark:hidden" />
+            <img src="/images/logo-dark.svg" alt="Math Master" class="h-8 hidden dark:block" />
+        </a>
 
         <flux:spacer />
 
